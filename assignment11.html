@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // Question1
+            function question1() {
+                let ar = prompt('enter numbers space seperated');
+                ar = ar.split(' ').map((n) => parseInt(n));
+                const even = () => ar.filter(n => n % 2 == 0);
+                const odd = () => ar.filter(n => n % 2 != 0);
+                // a)
+                const evenSum = even().reduce((a, b) => a + b);
+                const oddSum = odd().reduce((a, b) => a + b)
+                const diff = evenSum - oddSum;
+                console.log(Math.abs(diff));
+                // b)
+                console.log(odd().length);
+                // c)
+                console.log(even().length);
+                // d)
+                console.log((ar.reduce((a, b) => a + b)) / ar.length)
+                // e)
+                function gcd(a, b) {
+                    if (b == 0) {
+                        return a;
+                    }
+                    return gcd(b, a % b)
+                }
+                console.log(gcd(evenSum, oddSum));
+            }
+            question1()
+            // =================================================
+            // Question 2
+            function question2() {
+                let ar1 = prompt('enter numbers space seperated');
+                ar1 = ar1.split(' ').map((n) => parseInt(n));
+                let ar2 = prompt('enter 2 array numbers space seperated');
+                ar2 = ar2.split(' ').map((n) => parseInt(n));
+                const target = 4
+
+                if ((ar1.indexOf(target) !== -1) && (ar2.indexOf(target) !== -1)) {
+                    console.log(`${target} in both array`)
+                } else if ((ar1.indexOf(target) !== -1) || (ar2.indexOf(target) !== -1)) {
+                    console.log(`${target} in one array`)
+                } else {
+                    console.log('not present in any array')
+                }
+            }
+            question2()
+            // =================================================
+            // Question3
+
+            function flatArray(ar, newAr) {
+                if (ar.length == 0) {
+                    return newAr
+                }
+                if (!Array.isArray(ar[0])) {
+                    newAr.push(ar[0])
+                    return flatArray(ar.slice(1), newAr)
+                } else {
+                    return flatArray(ar[0], newAr)
+                }
+            }
+
+            console.log(flatArray(ar, []))
+
+            // =================================================
+            // Question 4
+            function question4() {
+                let ar = prompt('enter numbers space seperated');
+                ar = ar.split(' ').map((n) => parseInt(n));
+                ar.sort()
+                let duplicateElements = []
+                for (let i = 1; i < ar.length; i++) {
+                    if (ar[i - 1] === ar[i]) {
+                        duplicateElements.push(ar[i])
+                    }
+                }
+                // a)
+                console.log(duplicateElements)
+                // b)
+                let set_ = new Set(ar)
+                let uniqueArray = Array.from(set_)
+                console.log(uniqueArray)
+            }
+            question4()
+            // ==================================================
+
+            // Question 5
+
+            function thirdLargest(arr, arr_size) { /* There should be
+    at least three elements */
+                if (arr_size < 3) {
+                    document.write(" Invalid Input ");
+                    return;
+                }
+
+                let first = arr[0];
+                for (let i = 1; i < arr_size; i++) {
+                    if (arr[i] > first) {
+                        first = arr[i]
+                    }
+                }
+                let second = Number.MIN_VALUE;
+                for (let i = 0; i < arr_size; i++) {
+                    if (arr[i] < first && arr[i] > second) {
+                        second = arr[i]
+                    }
+                }
+                let third = Number.MIN_VALUE;
+                for (let i = 0; i < arr_size; i++) {
+                    if (arr[i] > third && arr[i] < second) {
+                        third = arr[i];
+                    }
+                }
+                document.write("The third Largest " + "element is ", third);
+            }
+            let arr = [
+                12,
+                13,
+                1,
+                10,
+                34,
+                16
+            ];
+
+            let n = arr.length;
+            thirdLargest(arr, n);
+        </script>
+    </body>
+</html>
