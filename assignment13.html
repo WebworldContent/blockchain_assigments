@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // Question 1
+            // let ar = prompt('enter numbers space seperated');
+            // ar = ar.split(' ').map((n) => parseInt(n));
+            // // a)
+            // let sum = ar.reduce((a,b)=> a+b)
+            // document.write(`sum of array is ${sum}`)
+            // document.write('<br/>')
+            // // b)
+            // let average = sum / ar.length;
+            // document.write(`average of array is ${average}`)
+
+            // ================================================
+            // Question 2
+            let students = [
+                { name: "John", marks: "92" },
+                { name: "Oliver", marks: "85" },
+                { name: "Michael", marks: "79" },
+                { name: "Dwight", marks: "95"},
+                { name: "Oscar", marks: "64" },
+                { name: "Kevin", marks: "48" },
+            ];
+            
+            const mp = new Map()
+            students.forEach((data)=>{
+                console.log(data)
+                let mark = parseInt(data.marks)
+                console.log(mark)
+                if (mark <= 100 && mark >= 90) {
+                    if (mp.has('A')) {
+                        mp.get('A').push(data)
+                    }
+                    else {
+                        mp.set('A', [data])
+                    }
+                }
+                if (mark < 90 && mark >= 80) {
+                    if (mp.has('B')) {
+                        mp.get('B').push(data)
+                    }
+                    else {
+                        mp.set('B', [data])
+                    }
+                }
+                if (mark < 80 && mark >= 70) {
+                    if (mp.has('C')) {
+                        mp.get('C').push(data)
+                    }
+                    else {
+                        mp.set('C', [data])
+                    }
+                }
+                if (mark < 70 && mark >= 60) {
+                    if (mp.has('D')) {
+                        mp.get('D').push(data)
+                    }
+                    else {
+                        mp.set('D', [data])
+                    }
+                }
+                if (mark < 60 && mark >= 50) {
+                    if (mp.has('E')) {
+                        mp.get('E').push(data)
+                    }
+                    else {
+                        mp.set('E', [data])
+                    }
+                }
+                if (mark < 50) {
+                    if (mp.has('F')) {
+                        mp.get('F').push(data)
+                    }
+                    else {
+                        mp.set('F', [data])
+                    }
+                }
+            })
+            console.log(mp)
+        </script>
+    </body>
+</html>
