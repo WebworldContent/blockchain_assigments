@@ -1,6 +1,7 @@
 // Question1
 // answer :-  it will console log "Error1" then "Success 4"
 
+
 // Question2
 const time = (timeout, data) => new Promise((resolve => setTimeout(() => resolve(data), timeout)))
 
